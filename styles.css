@@ -1,9 +1,17 @@
+/* ========================================
+   RESPONSIVE CLOTHING WEBSITE CSS
+   Mobile-first approach with breakpoints
+   ======================================== */
+
+/* ========================================
+   BASE STYLES (Mobile First - 320px+)
+   ======================================== */
+
 html,
 body {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to right, #000000, #37658f, #0581a0);
-  background-attachment: fixed;
+  background: linear-gradient(to right, #0d0c0c, #343434, #575757);
   min-height: 100vh;
   margin: 0;
   color: white;
@@ -24,36 +32,45 @@ body.fade-out {
   box-sizing: border-box;
 }
 
+/* ========================================
+   NAVBAR - Mobile First
+   ======================================== */
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5vh 2vw;
+  padding: 10px 15px;
   background: linear-gradient(to right, #111, #333);
   color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
+  flex-wrap: wrap;
 }
 
 .otl-Minilogo {
-  height: 10vh;
+  height: 50px;
+  width: auto;
 }
 
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 2vw;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
   position: relative;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -63,35 +80,37 @@ body.fade-out {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .nav-links a.active {
   font-weight: bold;
   text-decoration: underline;
-  color: #3b82f6;
 }
+
 .nav-icons {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 8px;
 }
 
 .nav-right a {
   text-decoration: none;
   color: white;
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
 }
 
 .icon {
   position: relative;
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 .icon img {
-  width: 35px;
+  width: 28px;
   height: auto;
   cursor: pointer;
   transition: transform 0.2s ease, filter 0.3s ease;
@@ -108,36 +127,34 @@ body.fade-out {
   transform: scale(1);
 }
 
+/* Search Container - Mobile */
 .search-container {
   display: flex;
   align-items: center;
   position: relative;
   transition: width 0.3s ease;
   overflow: hidden;
-  width: 3.5vw;
+  width: 35px;
   flex-direction: row-reverse;
   justify-content: flex-start;
 }
 
 .search-container:hover,
 .search-container:focus-within {
-  width: 15vw;
+  width: 180px;
 }
 
-/* Search icon */
 .search-container img {
   flex-shrink: 0;
-  margin-left: 0.5vw;
+  margin-left: 6px;
 }
 
-/* Search input */
 #searchInput {
   border: 1px solid #aaa;
   border-radius: 5px;
-  padding: 0.3em 0.3em;
+  padding: 6px 10px;
   outline: none;
-  font-size: 1rem;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  font-size: 14px;
   width: 100%;
   background: transparent;
   color: white;
@@ -147,17 +164,19 @@ body.fade-out {
   margin-left: 6px;
 }
 
-/* Show input smoothly */
 .search-container:hover #searchInput,
 .search-container:focus-within #searchInput {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Active icon color */
 .icon.active img {
   filter: brightness(0) saturate(100%) invert(56%) sepia(84%) saturate(527%) hue-rotate(178deg) brightness(92%) contrast(95%);
 }
+
+/* ========================================
+   CAROUSEL - Mobile First
+   ======================================== */
 
 .carousel {
   flex: 1;
@@ -167,7 +186,7 @@ body.fade-out {
   align-items: center;
   overflow: hidden;
   width: 100%;
-  height: 55vh;
+  height: 50vh;
   max-width: 100vw;
   position: relative;
   background: transparent;
@@ -190,7 +209,7 @@ body.fade-out {
 
 .slide img {
   width: 100%;
-  height: 90%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -199,15 +218,15 @@ body.fade-out {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1vw;
+  gap: 8px;
   position: absolute;
-  bottom: 4vh;
+  bottom: 15px;
   width: 100%;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #aaa;
   cursor: pointer;
@@ -218,21 +237,29 @@ body.fade-out {
   background: white;
 }
 
+/* ========================================
+   FOOTER - Mobile First
+   ======================================== */
+
 footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
   width: 100%;
   background: linear-gradient(to right, #111, #333);
   color: white;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 2vh 2vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 15px;
   font-family: Arial, sans-serif;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  font-size: 11px;
   z-index: 10;
-  margin-top: auto; /* ✅ ensures footer stays at bottom if content is short */
   opacity: 0;
   transform: translateY(100%);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  text-align: center;
 }
 
 footer.visible {
@@ -243,116 +270,120 @@ footer.visible {
 .footer-left,
 .footer-center,
 .footer-right {
-  flex: 1;
-  padding: 0 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4em;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 .footer-left p,
 .footer-center p,
 .footer-right p {
   line-height: 1.6;
-  margin: 0.3em 0;
 }
 
+.footer-center {
+  text-align: center;
+}
+
+.footer-right {
+  text-align: center;
+}
+
+/* ========================================
+   BRAND/ABOUT PAGE - Mobile First
+   ======================================== */
+
 .page-layout {
-  flex: 1; /* ensures content pushes footer down */
   display: flex;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
   min-height: calc(100vh - 150px);
-  background: transparent;
-  padding: 80px 0;
+  background: linear-gradient(90deg, #0a0a0a, #2e2e2e);
+  padding: 30px 15px;
   box-sizing: border-box;
 }
 
 #brandlogo {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 6vw;
-  width: 90%;
+  gap: 30px;
+  width: 100%;
   max-width: 1400px;
-  flex-wrap: wrap;
-  margin-left: 5%;
+  margin: 0 auto;
 }
 
 .brand-image img {
-  width: 80vh;
+  width: 100%;
   max-width: 100%;
   height: auto;
-  border-radius: 16px;
-  margin-left: 4vh;
+  border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .brand-image img:hover {
-  transform: scale(1.04);
+  transform: scale(1.02);
   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
 }
 
 .brand-text {
-  flex: 1;
+  width: 100%;
   color: #eaeaea;
   font-family: "Poppins", Arial, sans-serif;
-  line-height: 1.9;
+  line-height: 1.8;
   text-align: justify;
-  max-width: 70vh;
-  font-size: 0.95rem;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  font-size: 0.9rem;
+  padding: 0 10px;
 }
 
 .brand-text h2 {
-  font-size: 2.2rem;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  font-size: 1.6rem;
   font-weight: 600;
-  margin-bottom: 2vh;
-  margin-left: 2vh;
+  margin-bottom: 20px;
   color: #ffffff;
   border-bottom: 2px solid #3b82f6;
   display: inline-block;
-  padding-bottom: 2vh;
+  padding-bottom: 8px;
 }
 
 .brand-text p {
-  margin-bottom: 3vh;
-  margin-left: 2vh;
+  margin-bottom: 14px;
   text-align: justify;
 }
 
+/* ========================================
+   SHOP CONTAINER - Mobile First
+   ======================================== */
+
 .shop-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 20px;
   justify-items: center;
   align-items: start;
-  padding: 5vh 6vw;
+  padding: 20px 15px;
   box-sizing: border-box;
 }
 
 .product {
-  background: transparent;
+  background-color: transparent;
   position: relative;
   border-radius: 20px;
   overflow: hidden;
   text-align: center;
-  padding: 1vh 1vw;
+  padding: 10px;
   border: 1px transparent;
   border-radius: 8px;
   width: 100%;
-  max-width: 800px;
+  max-width: 400px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product .price {
   font-weight: bold;
   font-size: 1rem;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
   color: #ffffff;
   margin-top: 5px;
 }
@@ -374,22 +405,20 @@ footer.visible {
   font-weight: bold;
   margin-top: 10px;
   font-size: 1.1rem;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
   color: #ffffff;
 }
 
 .add-to-cart {
   position: absolute;
-  top: 1vh;
-  right: 1vw;
-  width: 2vw;
-  height: 2vw;
-  font-size: 1.4rem;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  top: 10px;
+  right: 10px;
   background: white;
   color: black;
   border: none;
   border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.2s ease;
@@ -400,60 +429,74 @@ footer.visible {
   transform: scale(1.1);
 }
 
-/* shop.html */
+/* ========================================
+   PRODUCTS PAGE - Mobile First
+   ======================================== */
+
 .products {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin: 40px auto;
+  margin: 20px auto;
   width: 100%;
   text-align: center;
+  padding: 0 15px;
 }
 
-.products h2, 
-.products h3 {
+.products h2 {
+  font-size: 1.5rem;
   text-align: center;
   margin: 20px auto 10px auto;
 }
 
-.products p {
+.products h3 {
+  font-size: 1.2rem;
   text-align: center;
-  max-width: 900px;
-  margin: 0 auto 25px auto;
-  line-height: 1.5;
+  margin: 15px auto 8px auto;
 }
 
-/* Size Table */
+.products p {
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto 20px auto;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  padding: 0 10px;
+}
+
+/* Size Table - Mobile */
 .size-table {
   width: 100%;
-  max-width: 800px;
+  max-width: 100%;
   margin: 20px auto;
   border-collapse: collapse;
-  font-size: 16px;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  font-size: 12px;
   background-color: #3a3a3a;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   color: #fff;
+  display: block;
+  overflow-x: auto;
 }
 
 .size-table th {
   background-color: #282a2d;
   color: white;
-  padding: 10px;
+  padding: 8px 5px;
   text-align: center;
+  font-size: 11px;
 }
 
 .size-table td {
-  padding: 10px;
+  padding: 8px 5px;
   text-align: center;
   border-bottom: 1px solid #333;
+  font-size: 11px;
 }
 
-/* Alternate row colors */
 .size-table tbody tr:nth-child(odd) td {
   background-color: #3a3a3a;
 }
@@ -463,8 +506,7 @@ footer.visible {
 }
 
 .size-table tbody tr:hover td {
-  transform: scale(1.07);
-  transition: transition 0.5s ease;
+  background-color: #555;
 }
 
 /* Size Link */
@@ -474,7 +516,7 @@ footer.visible {
   justify-content: center;
   text-decoration: none;
   border-radius: 12px;
-  padding: 15px 25px;
+  padding: 12px 20px;
   transition: transform 0.3s ease, background 0.3s ease;
   background: transparent;
   color: inherit;
@@ -484,8 +526,7 @@ footer.visible {
 .size-link h2 {
   margin: 0;
   color: #fff;
-  font-size: 1.3rem;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  font-size: 1.1rem;
   transition: transform 0.3s ease;
 }
 
@@ -499,336 +540,260 @@ footer.visible {
   text-decoration: underline;
 }
 
-/* for order.html */
+/* Order Guide */
 .guide {
   text-align: justify;
   font-family: monospace;
-  font-size: large;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  font-size: 0.9rem;
+  padding: 0 15px;
+  line-height: 1.6;
 }
 
-/* for about.html */
+/* ========================================
+   ABOUT PAGE - Mobile First
+   ======================================== */
+
 .about-container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 8vh 5vw;
+  padding: 30px 15px;
   text-align: center;
-  color: #fff;
-  font-family: "Poppins", Arial, sans-serif;
 }
 
 .about-intro h1 {
-  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-  font-weight: 700;
-  margin-bottom: 1.2rem;
-  letter-spacing: 1px;
-  color: #ffffff;
-  border-bottom: 3px solid #3b82f6;
-  display: inline-block;
-  padding-bottom: 0.6rem;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
 }
 
 .about-intro p {
-  font-size: clamp(1rem, 1.3vw, 1.25rem);
-  color: #d1d1d1;
-  margin: 2vh auto 6vh auto;
-  max-width: 850px;
-  line-height: 1.8;
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 40px;
+  padding: 0 10px;
 }
 
 .team-members {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 3rem;
-  justify-items: center;
-  width: 100%;
+  grid-template-columns: 1fr;
+  gap: 30px;
 }
 
 .member-card {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 25px;
-  padding: 4vh 3vw;
-  text-align: center;
-  max-width: 380px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 25px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .member-card:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
 }
 
 .member-card img {
-  width: 190px;
-  height: 190px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1.2rem;
-  border: 4px solid #3b82f6;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.member-card img:hover {
-  transform: scale(1.07);
-  border-color: #58aaff;
+  margin-bottom: 15px;
 }
 
 .member-card h2 {
-  font-size: clamp(1.2rem, 1.6vw, 1.5rem);
-  margin-bottom: 0.8rem;
+  margin: 12px 0 10px;
+  font-size: 1.2rem;
   font-family: 'Courier New', Courier, monospace;
-  color: #ffffff;
 }
 
 .member-card p {
-  font-size: clamp(1rem, 1.1vw, 1.15rem);
+  font-size: 0.95rem;
   color: #ddd;
   text-align: justify;
-  line-height: 1.7;
-  margin-bottom: 1rem;
+  font-weight: 500;
+  margin-bottom: 15px;
 }
 
-/* for contact.html */
-.contact-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  width: 100%;
-  padding: 8vh 5vw;
-  background: transparent;
-}
+/* ========================================
+   TABLET STYLES (768px and up)
+   ======================================== */
 
-.contact-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 3vh;
-  color: #ffffff;
-  border-bottom: 3px solid #3b82f6;
-  display: inline-block;
-  padding-bottom: 1vh;
-}
-
-.contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5vw;
-  width: 100%;
-  max-width: 1000px;
-  margin-top: 4vh;
-}
-
-.contact-info, .contact-store {
-  flex: 1 1 350px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 3vh 2vw;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-info:hover, .contact-store:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px transparent;
-}
-
-.contact-info p, .contact-store p {
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
-  margin-bottom: 1vh;
-  line-height: 1.6;
-}
-
-.contact-social {
-  margin-top: 2vh;
-}
-
-.contact-social h3 {
-  margin-bottom: 1vh;
-  color: #3b82f6;
-}
-
-.contact-social a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #fff;
-  text-decoration: none;
-  margin-bottom: 0.8vh;
-  transition: color 0.3s ease;
-}
-
-.contact-social a:hover {
-  color: #3b82f6;
-}
-
-.contact-social img {
-  width: 22px;
-  height: 22px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-/* media - for screen responsiveness */
-
-/* For Tablets and Small Laptops */
-@media (max-width: 1024px) {
-  .shop-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2vw;
-  }
-
-  .product img {
-    height: 30vh;
-    object-fit: cover;
-  }
-
+@media (min-width: 768px) {
+  /* Navbar */
   .navbar {
-    padding: 1.5vh 3vw;
-  }
-}
-
-/* For Medium Devices */
-@media (max-width: 900px) {
-  #brandlogo {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-    gap: 5vh;
+    padding: 12px 30px;
   }
 
-  .brand-image img {
-    width: 80vw;
-    max-width: 85%;
-  }
-
-  .brand-text {
-    max-width: 90%;
-    text-align: center;
-    font-size: clamp(0.9rem, 1.8vw, 1.2rem);
-  }
-
-  .brand-text h2 {
-    text-align: center;
-    border-bottom: none;
-  }
-}
-
-/* For Tablets & Large Phones */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    gap: 2vh;
-    padding: 2vh 4vw;
+  .otl-Minilogo {
+    height: 65px;
   }
 
   .nav-right {
-    gap: 4vw;
+    gap: 18px;
   }
 
+  .nav-link,
+  .nav-right a {
+    font-size: 0.95rem;
+    letter-spacing: 0.8px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-icons {
+    gap: 12px;
+  }
+
+  .icon img {
+    width: 32px;
+  }
+
+  .search-container:hover,
+  .search-container:focus-within {
+    width: 220px;
+  }
+
+  #searchInput {
+    font-size: 15px;
+    padding: 7px 12px;
+  }
+
+  /* Carousel */
   .carousel {
-    height: 50vh;
+    height: 60vh;
   }
 
-  .brand-image img {
-    width: 85vw;
+  .dots {
+    gap: 10px;
+    bottom: 20px;
   }
 
-  .size-table {
-    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  .dot {
+    width: 10px;
+    height: 10px;
   }
 
-  .size-table th,
-  .size-table td {
-    padding: 1vh 2vw;
-  }
-
-  .products p {
-    width: 80%;
-  }
-}
-
-/* For Small Phones */
-@media (max-width: 600px) {
-  .shop-container {
-    grid-template-columns: 1fr;
-    gap: 3vh;
-  }
-
-  .product img {
-    height: 35vh;
-  }
-
-  .brand-image img {
-    width: 90vw;
-  }
-
-  .brand-text {
-    font-size: clamp(0.85rem, 2vw, 1.1rem);
-  }
-}
-
-/* For Extra Small Screens */
-@media (max-width: 480px) {
-  .size-table {
-    font-size: clamp(0.85rem, 2vw, 1.1rem);
-  }
-
-  .products p {
-    width: 95%;
-  }
-
-  .navbar {
-    gap: 1.5vh;
-  }
-
-  .carousel {
-    height: 45vh;
-  }
-}
-
-/* Footer Responsiveness */
-@media (max-width: 760px) {
+  /* Footer */
   footer {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4vh 5vw;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 30px;
+    font-size: 12px;
   }
 
   .footer-left,
   .footer-center,
   .footer-right {
-    width: 100%;
-    padding: 1.5vh 0;
-    text-align: center;
+    width: 30%;
+    margin-bottom: 0;
   }
 
   .footer-right {
-    text-align: center;
+    text-align: right;
   }
-}
 
-@media (max-width: 768px) {
+  /* Brand Page */
+  .page-layout {
+    padding: 50px 30px;
+  }
+
+  #brandlogo {
+    flex-direction: row;
+    gap: 60px;
+    align-items: flex-start;
+  }
+
+  .brand-image img {
+    width: 450px;
+  }
+
+  .brand-text {
+    flex: 1;
+    max-width: 500px;
+    font-size: 0.95rem;
+    padding: 0;
+  }
+
+  .brand-text h2 {
+    font-size: 2rem;
+  }
+
+  /* Shop Container */
+  .shop-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 30px 30px;
+  }
+
+  .product {
+    max-width: 500px;
+  }
+
+  /* Products Page */
+  .products {
+    margin: 30px auto;
+    padding: 0 30px;
+  }
+
+  .products h2 {
+    font-size: 1.8rem;
+  }
+
+  .products h3 {
+    font-size: 1.4rem;
+  }
+
+  .products p {
+    max-width: 700px;
+    font-size: 1rem;
+  }
+
+  .size-table {
+    font-size: 14px;
+    max-width: 700px;
+  }
+
+  .size-table th,
+  .size-table td {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+
+  .size-link {
+    padding: 15px 25px;
+  }
+
+  .size-link h2 {
+    font-size: 1.2rem;
+  }
+
+  .guide {
+    font-size: 1rem;
+    padding: 0 30px;
+  }
+
+  /* About Page */
   .about-container {
-    padding: 6vh 4vw;
+    padding: 50px 30px;
   }
 
   .about-intro h1 {
-    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-size: 2.5rem;
   }
 
   .about-intro p {
-    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+  }
+
+  .team-members {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
   }
 
   .member-card {
-    padding: 5vh 6vw;
-    max-width: 95%;
+    padding: 28px;
   }
 
   .member-card img {
@@ -836,80 +801,397 @@ footer.visible {
     height: 160px;
   }
 
-  .team-members {
-    gap: 2.2rem;
+  .member-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .member-card p {
+    font-size: 1rem;
   }
 }
 
-/* Extra Small Devices (Phones) */
-@media (max-width: 480px) {
-  .about-intro p {
-    width: 95%;
-  }
+/* ========================================
+   LAPTOP STYLES (1024px and up)
+   ======================================== */
 
-  .member-card {
-    padding: 5vh 5vw;
-  }
-
-  .member-card img {
-    width: 140px;
-    height: 140px;
-  }
-}
-
-@media (max-width: 600px) {
+@media (min-width: 1024px) {
+  /* Navbar */
   .navbar {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1.5vh 2vw;
-    gap: 1vh;
-    text-align: center;
+    padding: 15px 40px;
   }
 
-  .navbar a {
-    font-size: 0.9rem;
-    display: inline-block;
-    margin: 0.5vh 2vw;
+  .otl-Minilogo {
+    height: 75px;
   }
 
   .nav-right {
-    display: flex;
-    justify-content: center;
-    gap: 5vw;
+    gap: 22px;
   }
 
-  .carousel img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  .nav-link,
+  .nav-right a {
+    font-size: 1rem;
+    letter-spacing: 1px;
   }
 
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-icons {
+    gap: 15px;
+  }
+
+  .icon img {
+    width: 35px;
+  }
+
+  .search-container:hover,
+  .search-container:focus-within {
+    width: 250px;
+  }
+
+  /* Carousel */
   .carousel {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
+    height: calc(100vh - 160px);
   }
 
-  .shop-container {
-    grid-template-columns: 1fr;
-    padding: 0 4vw;
+  .slide img {
+    height: 90%;
   }
 
-  .product img {
-    width: 100%;
-    height: auto;
+  .dots {
+    bottom: 25px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 20px 40px;
+    font-size: 13px;
+  }
+
+  /* Brand Page */
+  .page-layout {
+    padding: 70px 40px;
   }
 
   #brandlogo {
-    flex-direction: column;
-    text-align: center;
-    margin: 0 auto;
+    gap: 80px;
   }
 
-  .brand-text h2, .brand-text p {
-    text-align: center;
-    width: 95%;
-    margin: 0 auto;
+  .brand-image img {
+    width: 600px;
+  }
+
+  .brand-text {
+    max-width: 550px;
+    font-size: 0.95rem;
+  }
+
+  .brand-text h2 {
+    font-size: 2.2rem;
+  }
+
+  /* Shop Container */
+  .shop-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px 40px;
+  }
+
+  .product {
+    max-width: 600px;
+  }
+
+  /* Products Page */
+  .products {
+    margin: 40px auto;
+    padding: 0 40px;
+  }
+
+  .products h2 {
+    font-size: 2rem;
+  }
+
+  .products h3 {
+    font-size: 1.5rem;
+  }
+
+  .products p {
+    max-width: 850px;
+    font-size: 1.05rem;
+  }
+
+  .size-table {
+    font-size: 15px;
+    max-width: 750px;
+  }
+
+  .size-table th,
+  .size-table td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .size-link h2 {
+    font-size: 1.3rem;
+  }
+
+  .guide {
+    font-size: 1.05rem;
+    padding: 0 40px;
+  }
+
+  /* About Page */
+  .about-container {
+    max-width: 1200px;
+    padding: 60px 40px;
+  }
+
+  .about-intro h1 {
+    font-size: 2.8rem;
+  }
+
+  .about-intro p {
+    font-size: 1.15rem;
+    margin-bottom: 55px;
+  }
+
+  .team-members {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .member-card {
+    padding: 30px;
+  }
+
+  .member-card img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .member-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .member-card p {
+    font-size: 1rem;
+  }
+}
+
+/* ========================================
+   DESKTOP STYLES (1440px and up)
+   ======================================== */
+
+@media (min-width: 1440px) {
+  /* Navbar */
+  .navbar {
+    padding: 15px 60px;
+  }
+
+  .otl-Minilogo {
+    height: 80px;
+  }
+
+  .nav-right {
+    gap: 25px;
+  }
+
+  .search-container:hover,
+  .search-container:focus-within {
+    width: 280px;
+  }
+
+  /* Brand Page */
+  .page-layout {
+    padding: 80px 60px;
+  }
+
+  #brandlogo {
+    gap: 100px;
+  }
+
+  .brand-image img {
+    width: 700px;
+  }
+
+  .brand-text {
+    max-width: 600px;
+  }
+
+  /* Shop Container */
+  .shop-container {
+    gap: 35px;
+    padding: 50px 60px;
+  }
+
+  .product {
+    max-width: 700px;
+  }
+
+  /* Products Page */
+  .products {
+    padding: 0 60px;
+  }
+
+  .products p {
+    max-width: 900px;
+  }
+
+  .size-table {
+    font-size: 16px;
+    max-width: 800px;
+  }
+
+  .size-table th,
+  .size-table td {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .guide {
+    font-size: 1.1rem;
+    padding: 0 60px;
+  }
+
+  /* About Page */
+  .about-container {
+    max-width: 1400px;
+  }
+
+  .about-intro h1 {
+    font-size: 3rem;
+  }
+
+  .about-intro p {
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+  }
+
+  .team-members {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* ========================================
+   EXTRA LARGE DESKTOP (1920px and up)
+   ======================================== */
+
+@media (min-width: 1920px) {
+  .navbar {
+    padding: 15px 80px;
+  }
+
+  .page-layout {
+    padding: 100px 80px;
+  }
+
+  #brandlogo {
+    gap: 120px;
+  }
+
+  .brand-image img {
+    width: 800px;
+  }
+
+  .shop-container {
+    padding: 60px 80px;
+    gap: 40px;
+  }
+
+  .about-container {
+    max-width: 1600px;
+    padding: 80px 80px;
+  }
+}
+
+/* ========================================
+   SMALL PHONE OPTIMIZATION (max 375px)
+   ======================================== */
+
+@media (max-width: 375px) {
+  .navbar {
+    padding: 8px 10px;
+  }
+
+  .otl-Minilogo {
+    height: 45px;
+  }
+
+  .nav-link,
+  .nav-right a {
+    font-size: 0.75rem;
+  }
+
+  .nav-right {
+    gap: 8px;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .icon img {
+    width: 24px;
+  }
+
+  .search-container:hover,
+  .search-container:focus-within {
+    width: 150px;
+  }
+
+  .carousel {
+    height: 40vh;
+  }
+
+  .brand-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .brand-text {
+    font-size: 0.85rem;
+  }
+
+  .products h2 {
+    font-size: 1.3rem;
+  }
+
+  .products h3 {
+    font-size: 1.1rem;
+  }
+
+  .about-intro h1 {
+    font-size: 1.6rem;
+  }
+
+  .member-card img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Hide on mobile */
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Hide on tablet and up */
+@media (min-width: 768px) {
+  .hide-tablet-up {
+    display: none !important;
+  }
+}
+
+/* Hide on desktop */
+@media (min-width: 1024px) {
+  .hide-desktop {
+    display: none !important;
   }
 }
