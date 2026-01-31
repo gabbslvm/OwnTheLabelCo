@@ -475,36 +475,35 @@ footer.visible {
 }
 
 /* Size Table - Mobile */
+/* Size Table */
 .size-table {
   width: 100%;
-  max-width: 100%;
+  max-width: 800px;
   margin: 20px auto;
   border-collapse: collapse;
-  font-size: 12px;
+  font-size: 16px;
+  font-size: clamp(0.9rem, 1vw, 1.2rem);
   background-color: #3a3a3a;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   color: #fff;
-  display: block;
-  overflow-x: auto;
 }
 
 .size-table th {
   background-color: #282a2d;
   color: white;
-  padding: 8px 5px;
+  padding: 10px;
   text-align: center;
-  font-size: 11px;
 }
 
 .size-table td {
-  padding: 8px 5px;
+  padding: 10px;
   text-align: center;
   border-bottom: 1px solid #333;
-  font-size: 11px;
 }
 
+/* Alternate row colors */
 .size-table tbody tr:nth-child(odd) td {
   background-color: #3a3a3a;
 }
@@ -514,7 +513,8 @@ footer.visible {
 }
 
 .size-table tbody tr:hover td {
-  background-color: #555;
+  transform: scale(1.07);
+  transition: transition 0.5s ease;
 }
 
 /* Size Link */
@@ -524,7 +524,7 @@ footer.visible {
   justify-content: center;
   text-decoration: none;
   border-radius: 12px;
-  padding: 12px 20px;
+  padding: 15px 25px;
   transition: transform 0.3s ease, background 0.3s ease;
   background: transparent;
   color: inherit;
@@ -534,7 +534,8 @@ footer.visible {
 .size-link h2 {
   margin: 0;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  font-size: clamp(0.9rem, 1vw, 1.2rem);
   transition: transform 0.3s ease;
 }
 
