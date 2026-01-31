@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipt | OTL™</title>
-    <link rel="stylesheet" href="cart.css">
+    <title>Receipt | OTL</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="receipt.css">
+    <script defer src="receipt.js"></script>
 </head>
+
 <body>
     <header class="navbar">
         <div class="nav-left">
-            <a href="index.html">
-                <img src="img/MiniLogo.png" alt="OTL Logo" class="otl-Minilogo">
-            </a>
+            <img src="img/MiniLogo.png" alt="OTL Logo" class="otl-Minilogo">
         </div>
 
         <nav class="nav-right">
             <div class="nav-links">
-                <a href="index.html" class="nav-link">HOME</a>
+                <a href="index.html" class="nav-link active">HOME</a>
                 <a href="shop.html" class="nav-link">SHOP</a>
                 <a href="brand.html" class="nav-link">BRAND</a>
                 <a href="contact.html" class="nav-link">CONTACT</a>
@@ -25,6 +26,7 @@
             </div>
 
             <div class="nav-icons">
+                <!-- Search -->
                 <div class="icon search-container">
                     <img src="img/search.png" alt="Search" id="searchIcon">
                     <form id="searchForm">
@@ -32,12 +34,16 @@
                         <button type="submit" style="display: none;"></button>
                     </form>
                 </div>
+
+                <!-- Profile -->
                 <div class="icon">
                     <a href="login.html" id="profileBtn">
                         <img src="img/people.png" alt="Profile" id="profileIcon">
                     </a>
                 </div>
-                <div class="icon active">
+
+                <!-- Cart -->
+                <div class="icon">
                     <a href="cart.html" id="cartBtn">
                         <img src="img/shopping-cart.png" alt="Cart" id="cartIcon">
                     </a>
@@ -46,75 +52,56 @@
         </nav>
     </header>
 
-    <div class="receipt-container">
-        <h2 id="receiptHeader">Payment Receipt</h2>
-        <div id="receiptDetails">
-            <p><strong>Receipt ID:</strong> <span id="receiptId"></span></p>
-            <p><strong>Date:</strong> <span id="date"></span></p>
-            <p><strong>Name:</strong> <span id="name"></span></p>
-            <p><strong>Email:</strong> <span id="email"></span></p>
-            <p><strong>Address:</strong> <span id="address"></span></p>
+    <main class="receipt-container">
+        <section class="receipt-box">
+            <h1>Official Receipt</h1>
+            <p class="receipt-id" id="receiptId"></p>
+            <p class="receipt-date" id="receiptDate"></p>
 
-            <table id="itemsTable">
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Qty</th>
-                        <th>Price</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <div class="customer-info">
+                <h2>Customer Information</h2>
+                <p><strong>Name:</strong> <span id="customerName"></span></p>
+                <p><strong>Email:</strong> <span id="customerEmail"></span></p>
+                <p><strong>Address:</strong> <span id="customerAddress"></span></p>
+            </div>
 
-            <div class="total">Total: ₱<span id="total"></span></div>
-        </div>
+            <div class="receipt-items">
+                <h2>Purchased Items</h2>
+                <table id="itemsTable">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Price (₱)</th>
+                            <th>Subtotal (₱)</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
 
-        <a href="index.html" id="backHome" class="btn">Back to Home</a>
-    </div>
+            <div class="receipt-total">
+                <h2>Total: ₱<span id="receiptTotal"></span></h2>
+            </div>
 
-    <footer class="visible">
+            <div class="receipt-actions">
+                <button id="printBtn">Print Receipt</button>
+                <button id="backBtn">← Back to Shop</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
         <div class="footer-left">
-            <p>© 2025 OTL™. All Rights Reserved.</p>
+            <p>© 2025 OTL. All Rights Reserved.</p>
         </div>
         <div class="footer-center">
-            <p>Contact: support@otl.com</p>
+            <p>Thank you for shopping with us!</p>
         </div>
         <div class="footer-right">
-            <p>Follow Us: Instagram | Facebook </p>
+            <p>Order Tracking | Support | Feedback</p>
         </div>
     </footer>
-
-    <script>
-        const receipt = JSON.parse(localStorage.getItem('latestReceipt'));
-        const tbody = document.querySelector('#itemsTable tbody');
-
-        if (!receipt) {
-            document.getElementById('receiptHeader').textContent = "No receipt found.";
-            document.getElementById('receiptDetails').style.display = "none";
-        } else {
-            document.getElementById('receiptId').textContent = receipt.receiptId;
-            document.getElementById('date').textContent = receipt.date;
-            document.getElementById('name').textContent = receipt.name;
-            document.getElementById('email').textContent = receipt.email;
-            document.getElementById('address').textContent = receipt.address;
-            document.getElementById('total').textContent = Number(receipt.total).toFixed(2);
-
-            receipt.items.forEach(item => {
-                const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td>${item.name}</td>
-                        <td>${item.quantity}</td>
-                        <td>₱${(item.price || 0).toFixed(2)}</td>
-                        <td>₱${((item.price || 0) * item.quantity).toFixed(2)}</td>`;
-                        tbody.appendChild(tr);
-                });
-
-            document.getElementById('total').textContent = Number(receipt.total).toFixed(2);
-
-            // Clear the cart AFTER using the receipt
-            localStorage.removeItem('cart');
-        }
-    </script>
 </body>
+
 </html>

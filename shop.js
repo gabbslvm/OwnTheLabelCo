@@ -1,20 +1,15 @@
-// ensure that js file run only after that html files are loaded
-document.addEventListener("DOMContentLoaded", () => 
-{
-    // connects js to html element id for our shopContainer and searchInput
+document.addEventListener("DOMContentLoaded", () => {
     const shopContainer = document.getElementById("shopContainer");
     const searchInput = document.getElementById("searchInput");
 
     if (!window.PRODUCTS) window.PRODUCTS = [];
 
-    // Show Products
-    function renderProducts(products) 
-    {
+    // Render products
+    function renderProducts(products) {
         if (!shopContainer) return;
         shopContainer.innerHTML = "";
 
-        products.forEach(p => 
-        {
+        products.forEach(p => {
             const div = document.createElement("div");
             div.className = "product";
             div.innerHTML = `
@@ -26,52 +21,56 @@ document.addEventListener("DOMContentLoaded", () =>
         });
     }
 
-    // Add-to-Cart
-    shopContainer.addEventListener("click", e => 
-    {
-        if (e.target.classList.contains("add-to-cart")) 
-        {
+    // Add to cart
+    shopContainer.addEventListener("click", e => {
+        if (e.target.classList.contains("add-to-cart")) {
             const productDiv = e.target.closest(".product");
             const name = productDiv.querySelector(".product-name").innerText;
-            const price = productDiv.querySelector(".price").innerText;
+            const priceText = productDiv.querySelector(".price").innerText;
             const imgSrc = productDiv.querySelector("img").src;
+            const price = Number(priceText.replace(/[^\d.]/g, ""));
+
+            const product = window.PRODUCTS.find(p => p.name === name);
+            const id = product ? product.id : Date.now();
 
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            cart.push({ name, price, imgSrc });
+
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity = (existingItem.quantity || 1) + 1;
+            } else {
+                cart.push({ id, name, price, imgSrc, quantity: 1 });
+            }
+
             localStorage.setItem("cart", JSON.stringify(cart));
             alert(`${name} added to cart!`);
         }
     });
 
-    // Filter products on shop page
-    function filterProducts(query) 
-    {
+    // Filter products
+    function filterProducts(query) {
         return window.PRODUCTS.filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
     }
 
-    // Check search queries
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get("search");
     let productsToRender = window.PRODUCTS;
 
-    if (searchQuery) 
-    {
+    if (searchQuery) {
         productsToRender = filterProducts(searchQuery);
         if (searchInput) searchInput.value = searchQuery;
     }
 
     renderProducts(productsToRender);
 
-    // Live search filter on shop page
+    // Live search
     if (searchInput) {
-        searchInput.addEventListener("input", () => 
-        {
+        searchInput.addEventListener("input", () => {
             const filtered = filterProducts(searchInput.value);
             renderProducts(filtered);
         });
 
-        searchInput.addEventListener("keypress", e => 
-        {
+        searchInput.addEventListener("keypress", e => {
             if (e.key === "Enter") e.preventDefault();
         });
     }

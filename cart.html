@@ -125,9 +125,9 @@
             return {
               id: item.id,
               name: item.name,
-              price: product ? product.price : 0, // Ensure price comes from PRODUCTS
+              price: product ? product.price : 0,
               quantity: Number(item.quantity),
-              img: item.imgSrc || item.img // consistent property name
+              img: item.imgSrc || item.img
             };
         });
 
