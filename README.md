@@ -3,7 +3,7 @@
 A transactional, front-end e-commerce website for a fictional clothing brand — **Own The Label (OTL™)**. Built purely with HTML, CSS, and JavaScript, it simulates a full shopping flow from browsing to checkout.
 
 > **Course:** Web Development — School Project  
-> **Live Site:** [gabbdevs.github.io/OwnTheLabelCo](https://gabbslvm.github.io/OwnTheLabelCo/)
+> **Live Site:** [gabbslvm.github.io/OwnTheLabelCo](https://gabbslvm.github.io/OwnTheLabelCo/)
 
 ---
 
@@ -55,7 +55,7 @@ A transactional, front-end e-commerce website for a fictional clothing brand —
 
 No setup required — just open `index.html` in any modern browser.
 
-Or view it live at: **[gabbdevs.github.io/OwnTheLabelCo](https://gabbslvm.github.io/OwnTheLabelCo/)**
+Or view it live at: **[gabbslvm.github.io/OwnTheLabelCo](https://gabbslvm.github.io/OwnTheLabelCo/)**
 
 ---
 
